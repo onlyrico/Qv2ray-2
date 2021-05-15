@@ -64,6 +64,8 @@ jobs:
           mkdir build
           cd build
           cmake .. -GNinja \
+            -DCMAKE_PREFIX_PATH=../libs/x64-windows \
+            -DCMAKE_PROGRAM_PATH=../libs/x64-windows/tools/protobuf;../libs/x64-windows/tools/grpc
             -DCMAKE_INSTALL_PREFIX=./deployment \
             -DCMAKE_BUILD_TYPE=${{ env.BuildType }}
           cmake --build . --parallel $(nproc)
